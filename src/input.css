@@ -1,0 +1,23 @@
+/* .themecolor {
+    color:bisque;
+} */
+
+@tailwind base;
+@layer base {
+    h1 {
+        @apply text-2xl;
+    }
+    h2 {
+        @apply text-xl;
+        
+    }
+};
+
+@layer components {
+    .btn {
+        @apply bg-red-500 hover:bg-orange-500
+        transition-all duration-700 text-white p-10 m-10 w-40 text-center rounded; 
+    }
+};
+@tailwind components;
+@tailwind utilities;

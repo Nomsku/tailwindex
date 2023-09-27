@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="https://vjs.zencdn.net/8.5.2/video-js.css" rel="stylesheet" />
+    <link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css" rel="stylesheet">
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-gm-beige relative h-screen">
+    <!-- <nav
+  class="flex-no-wrap relative flex w-full items-center justify-between bg-gm-ash">
+  <div class="flex w-full flex-wrap items-center justify-between px-3">
+    <button
+      class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+      type="button"
+      data-te-collapse-init
+      data-te-target="#navbarSupportedContent1"
+      aria-controls="navbarSupportedContent1"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="[&>svg]:w-7">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="h-7 w-7">
+          <path
+            fill-rule="evenodd"
+            d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+            clip-rule="evenodd" />
+        </svg>
+      </span>
+    </button>
+
+    
+    </div>
+  </div>
+</nav> -->
+    <nav
+      class="flex-no-wrap flex w-full items-center justify-between bg-gm-black py-2 lg:flex-wrap lg:justify-start"
+    >
+      <div class="flex w-full flex-wrap items-center justify-between px-3">
+        <!-- Hamburger button for mobile view -->
+        <button
+          class="block border-0 bg-transparent px-2 text-gm-orange lg:hidden"
+          type="button"
+          data-te-collapse-init
+          data-te-target="#navbarSupportedContent1"
+          aria-controls="navbarSupportedContent1"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <!-- Hamburger icon -->
+          <span class="[&>svg]:w-7">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="h-7 w-7"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </button>
+
+        <!-- Right elements -->
+        <div class="flex items-center">
+          <!-- Second dropdown container -->
+          <div
+            class="group"
+            data-te-dropdown-ref
+            data-te-dropdown-alignment="end"
+          >
+            <!-- Second dropdown trigger -->
+            <a
+              class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+              href="#"
+              id="dropdownMenuButton2"
+              role="button"
+              data-te-dropdown-toggle-ref
+              aria-expanded="false"
+            >
+              <!-- User avatar -->
+              <img
+                src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg"
+                class="rounded-full"
+                style="height: 25px; width: 25px"
+                alt=""
+                loading="lazy"
+              />
+            </a>
+            <!-- Second dropdown menu -->
+            <ul
+              class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 group-focus-within:block left-0 bottom-0 w-screen"
+              aria-labelledby="dropdownMenuButton2"
+              data-te-dropdown-menu-ref
+            >
+              <!-- Second dropdown menu items -->
+              <section id="login">
+                <form id="join-form">
+                  <input id="username" />
+                  <button type="submit">Join</button>
+                </form>
+              </section>
+              <section id="rooms">
+                <button type="button" id="room1">room 1</button>
+                <button type="button" id="room2">room 2</button>
+                <button type="button" id="room3">room 3</button>
+              </section>
+              <section id="chat">
+                <form id="input-form">
+                  <input type="text" id="m" />
+                  <button type="submit">Send</button>
+                </form>
+                <ul id="messages"></ul>
+              </section>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header class="">
+      <div
+        class="bg-[url(/dist/img/fallen.jpg)] w-screen h-48 bg-no-repeat bg-top -z-10 bg-fixed bg-contain"
+      ></div>
+    </header>
+
+    <main class="m-auto">
+      <h1
+        class="text-3xl lg:text-2xl font-bold underline bg-lime-100 sm:bg-orange-400 md:bg-green-300 lg:bg-red-400 xl:bg-yellow-300 2xl:bg-blue-500"
+      >
+        Hello world!
+      </h1>
+      <h2 class="bg-gm-orange">H2 tason elementti</h2>
+      <video
+      id="my-video"
+      class="video-js w-screen"
+      controls
+      preload="auto"
+      width="auto"
+      height="360px"
+      poster="/dist/img/fallen.jpg"
+      data-setup="{}"
+    >
+      <source src="/hianovid.mp4" type="video/mp4" />
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank"
+          >supports HTML5 video</a
+        >
+      </p>
+    </video>
+    <p>miu</p>
+    </main>
+  </body>
+  <script src="./main.js"></script>
+  <script src="https://vjs.zencdn.net/8.5.2/video.min.js"></script>
+</html>
