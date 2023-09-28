@@ -9,6 +9,10 @@ const room1 = document.getElementById('room1');
 const room2 = document.getElementById('room2');
 const room3 = document.getElementById('room3');
 document.getElementById('chat').classList = 'hidden';
+room1.classList = 'hidden';
+room2.classList = 'hidden';
+room3.classList = 'hidden';
+
 
 room1.addEventListener('click', () => {
   socket.emit('joinRoom', 'room1');
@@ -38,6 +42,10 @@ msgForm.addEventListener('submit', (event) => {
       usernameInput.value = '';
       document.getElementById('login').classList = 'hidden';
       document.getElementById('chat').classList = '';
+      room1.classList = 'hover:bg-gm-beige hover:text-gm-black rounded-md';
+      room2.classList = 'hover:bg-gm-beige hover:text-gm-black rounded-md';
+      room3.classList = 'hover:bg-gm-beige hover:text-gm-black rounded-md';
+      
       msgInput.focus();
     }
   });
